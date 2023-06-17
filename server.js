@@ -7,12 +7,15 @@ const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const cors = require('cors');
 const dotenv = require('dotenv');
 
 const router = express.Router();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
+app.use(cors({
+  origin: ["http://localhost:3000", "https://tisoy.onrender.com"]
+}));
 
 // Invoke dotenv to load environment variables
 dotenv.config();
@@ -77,7 +80,6 @@ const UserRequest = mongoose.model('UserRequest', userRequestSchema);
 
 
 
-
 app.use(express.static(path.join(__dirname, 'views')));
 
 const jwtSecret = 'your-secret-key'; // Replace with your desired secret key
@@ -126,7 +128,8 @@ app.post('/signup', async function (req, res) {
     const savedUser = await newUser.save();
 
     // Render the signup success page
-    res.render(path.join(__dirname, 'views', 'signup-success'), { user: savedUser });
+    res.render('signup-success', { user: savedUser, root: path.join(__dirname, '../client/views') });
+
   } catch (err) {
     console.log(err);
     return res.status(500).send('An error occurred');
@@ -153,15 +156,16 @@ app.post('/recovery', async (req, res) => {
     const transporter = nodemailer.createTransport({
       // Configure your email provider details here
       // For example, for Gmail:
-      service: 'Gmail',
+      service: process.env.EMAIL_SERVICE,
       auth: {
-        user: '------XXX-X-X-X-X----',
-        pass: '____--xxxx--x-xx--x-xx-'
+
+        user: process.env.EMAIL_USERNAME,
+        pass: process.env.EMAIL_PASSWORD
       }
     });
 
     const mailOptions = {
-      from: 'girachashwin048@gmail.com',
+      from: process.env.EMAIL_USERNAME,
       to: email, // Use the submitted email from the forgot password form
       subject: 'Password Reset',
       text: `Click the following link to reset your password: ${resetUrl}`
@@ -213,12 +217,12 @@ app.post('/reset-password/:id/:token', (req, res) => {
 
   User.findById(id, (err, user) => {
     if (err) {
-      res.send('An error occurred. Please try again later.');
+      res.redirect('/ser');
       return;
     }
 
     if (!user) {
-      res.send('Invalid id...');
+      res.send('/inv-pas');
       return;
     }
 
@@ -231,7 +235,7 @@ app.post('/reset-password/:id/:token', (req, res) => {
       user.password = password;
       user.save((err) => {
         if (err) {
-          res.send('An error occurred. Please try again later.');
+          res.send('/ser');
         } else {
           res.redirect('/pass-up');
         }
@@ -252,13 +256,13 @@ app.post('/login', (req, res) => {
     .then((user) => {
       if (!user) {
         // User not registered
-        return res.send('User not registered');
+        return res.redirect('/user-error');
       }
 
       // Check if the password is correct
       if (user.password !== password) {
         // Invalid password
-        return res.send('Invalid password');
+        return res.redirect('/inv-pas');
       }
 
       if (email === 'admin@gmail.com' && password === 'admin1') {
@@ -278,7 +282,7 @@ app.post('/login', (req, res) => {
     })
     .catch((err) => {
       console.error('Error finding user', err);
-      res.send('An error occurred');
+      res.redirect('/ser');
     });
 });
 
@@ -291,7 +295,30 @@ app.post('/login', (req, res) => {
     }
   }  
   
+  app.get('/', (req, res) => {
+    // Check if the user is logged in
+    if (req.session.loggedIn) {
+      // User is logged in, redirect to the index page
+      res.redirect(`/index?uniqueId=${req.session.user.unique_id}`);
+    } else {
+      // User is not logged in, redirect to the login page
+      res.redirect('/login');
+    }
+  });
+  app.use(cookieParser());
 
+  app.get('/', (req, res) => {
+    // Check if the user has previously logged in
+    const user_id = req.cookies.user_id;
+    if (user_id) {
+      // User has previously logged in, redirect to the index page
+      res.redirect(`/index?uniqueId=${user_id}`);
+    } else {
+      // User has not previously logged in, redirect to the login page
+      res.redirect('/login');
+    }
+  });
+    
   app.get('/account', requireLogin, redirectToAuthorizedPage, async (req, res) => {
     const uniqueId = req.query.uniqueId;
   
@@ -557,25 +584,21 @@ app.get('/userRequest', (req, res) => {
 });  
   
   // ...
+ 
 
-
-  
   
   
   
   
 
 app.get('/userRequest', (req, res) => {
-res.render('userRequest');
+res.render('userReuest');
 });
 app.get('/pass-err', (req, res) => {
 res.render('pass-err');
 });
 app.get('/new-pass', (req, res) => {
 res.render('new-pass');
-});
-app.get('/pass-up', (req, res) => {
-res.render('pass-up');
 });
 app.get('/ema', (req, res) => {
 res.render('ema');
@@ -589,16 +612,34 @@ res.render('pass-up');
 app.get('/amo', (req, res) => {
 res.render('amo');
 });
+app.get('/inv-pas', (req, res) => {
+res.render('inv-pas');
+});
 app.get('/ser', (req, res) => {
 res.render('ser');
 });
 app.get('/login', (req, res) => {
+  res.render('login');
+});
+app.get('/index', (req, res) => {
+    res.render('index');
+  });
+  
+// Serve static files
+// Place this middleware before your routes
+
+// Your routes here...
+
+// Your error handling middleware here...
+
+app.get('/login', (req, res) => {
 res.render('login'); // Assuming you have a 'login' view/template
 });
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '../client/views'));
 app.set('view engine', 'ejs');
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, function () {
   console.log('Server is started on http://127.0.0.1:' + PORT);
 });
+  
