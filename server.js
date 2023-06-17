@@ -176,7 +176,7 @@ app.post('/recovery', async (req, res) => {
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.log(error);
-        return res.status(500).send('An error occurred while sending the email');
+        return res.status(500).send('An error occurred while sending the email: ' + error.message);
       }
       console.log('Email sent: ' + info.response);
       res.redirect('/em-re');
