@@ -157,7 +157,9 @@ app.post('/recovery', async (req, res) => {
 const transporter = nodemailer.createTransport({
   // Configure your email provider details here
   // For example, for a custom email service:
- 
+  host: 'smtp.godaddy.com',
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.EMAIL_USERNAME,
     pass: process.env.EMAIL_PASSWORD
