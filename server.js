@@ -155,9 +155,10 @@ app.post('/recovery', async (req, res) => {
 
     // Send the password reset email
     const transporter = nodemailer.createTransport({
-      // Configure your email provider details here
-      // For example, for Gmail:
-      service: process.env.EMAIL_SERVICE,
+      service: 'SMTP',
+      host: 'smtp.office365.com',
+      port: 587,
+      secure: false,
       auth: {
 
         user: process.env.EMAIL_USERNAME,
