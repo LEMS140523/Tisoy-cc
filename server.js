@@ -14,7 +14,7 @@ const router = express.Router();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors({
-  origin: ["http://localhost:3000", "https://tisoy.onrender.com"]
+  origin: ["http://localhost:3000", "https://tisoy-cc-173j.onrender.com"]
 }));
 
 // Invoke dotenv to load environment variables
