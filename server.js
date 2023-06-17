@@ -30,7 +30,7 @@ app.use(
   })
 );
 
-const url = "mongodb+srv://tisoy-project:tisoy@tisoyproject.ajksfq9.mongodb.net/<database-name>?retryWrites=true&w=majority";
+const url = "mongodb+srv://tisoy-project:tisoy@tisoyproject.ajksfq9.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose
   .connect(url, {
