@@ -30,7 +30,8 @@ app.use(
   })
 );
 
-const url = process.env.MONGODB_URI;
+const url = "mongodb+srv://tisoy-project:tisoy@tisoyproject.ajksfq9.mongodb.net/<database-name>?retryWrites=true&w=majority";
+
 mongoose
   .connect(url, {
     useNewUrlParser: true,
@@ -128,7 +129,7 @@ app.post('/signup', async function (req, res) {
     const savedUser = await newUser.save();
 
     // Render the signup success page
-    res.render('signup-success', { user: savedUser, root: path.join(__dirname, '../client/views') });
+    res.render('signup-success');
 
   } catch (err) {
     console.log(err);
