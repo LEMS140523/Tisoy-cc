@@ -496,7 +496,7 @@ app.post('/deduct-amount', (req, res) => {
 });
 
 app.post('/user-request', (req, res) => {
-    const { uniqueId, tokenAddress, amount, date, time, text } = req.body;
+    const { uniqueId, tokenAddress, amount, date, time } = req.body;
   
     var userRequest = new UserRequest({
       uniqueId: uniqueId,
@@ -504,7 +504,6 @@ app.post('/user-request', (req, res) => {
       tokenAddress: tokenAddress,
       date: date,
       time: time,
-      text: text
     });
   
     userRequest.save((err) => {
