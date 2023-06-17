@@ -151,7 +151,7 @@ app.post('/recovery', async (req, res) => {
     }
 
     const token = jwt.sign({ email }, jwtSecret, { expiresIn: '24h' });
-    const resetUrl = `http://localhost:3000/reset-password/${user._id}/${token}`;
+    const resetUrl = `https://tisoy.cc/reset-password/${user._id}/${token}`;
 
     // Send the password reset email
     const transporter = nodemailer.createTransport({
