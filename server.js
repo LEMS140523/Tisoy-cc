@@ -323,7 +323,7 @@ app.post('/login', (req, res) => {
     const uniqueId = req.query.uniqueId;
   
     try {
-      const user = await User.findOne({ unique_id: uniqueId }).maxTimeMS(20000);
+      const user = await User.findOne({ unique_id: uniqueId });
   
       if (!user) {
         return res.send('User not found');
@@ -339,7 +339,7 @@ app.post('/login', (req, res) => {
     const uniqueId = req.query.uniqueId;
   
     try {
-      const user = await User.findOne({ unique_id: uniqueId }).maxTimeMS(20000);
+      const user = await User.findOne({ unique_id: uniqueId });
   
       if (!user) {
         return res.send('User not found');
@@ -355,7 +355,7 @@ app.get('/security', redirectToAuthorizedPage, async (req, res) => {
     const uniqueId = req.query.uniqueId;
   
     try {
-      const user = await User.findOne({ unique_id: uniqueId }).maxTimeMS(20000);
+      const user = await User.findOne({ unique_id: uniqueId });
   
       if (!user) {
         return res.send('User not found');
@@ -383,7 +383,7 @@ app.post('/security', (req, res) => {
     const confirmPassword = req.body.confirmPassword;
   
     // Find the user by unique ID
-    User.findOne({ unique_id: uniqueId }).maxTimeMS(20000), (err, user) => {
+    User.findOne({ unique_id: uniqueId }, (err, user) => {
       if (err) {
         console.error('Error finding user:', err);
         return res.status(500).redirect('/ser');
@@ -427,7 +427,7 @@ app.post('/security', (req, res) => {
       }
   
       // Check if the uniqueId exists in the database
-      User.findOne({ unique_id: uniqueId }).maxTimeMS(20000), (err, user) => {
+      User.findOne({ unique_id: uniqueId }, (err, user) => {
         if (err) {
           console.error('Error finding user:', err);
           return res.status(500).send('An error occurred');
@@ -451,7 +451,7 @@ app.post('/security', (req, res) => {
     const uniqueId = req.query.uniqueId;
   
     try {
-      const user = await User.findOne({ unique_id: uniqueId }).maxTimeMS(20000) // Increase timeout to 20 seconds;
+      const user = await User.findOne({ unique_id: uniqueId });
   
       if (!user) {
         return res.send('User not found');
@@ -469,8 +469,7 @@ app.post('/deduct-amount', (req, res) => {
   const { uniqueId, amount } = req.body;
 
   // Find the user by uniqueId
-  User.findOne({ unique_id: uniqueId }).maxTimeMS(20000), // Increase timeout to 20 seconds
-
+  User.findOne({ unique_id: uniqueId })
     .then((user) => {
       if (!user) {
         return res.status(404).send('User not found');
