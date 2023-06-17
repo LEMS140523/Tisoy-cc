@@ -152,31 +152,31 @@ app.post('/recovery', async (req, res) => {
 
     const token = jwt.sign({ email }, jwtSecret, { expiresIn: '24h' });
     const resetUrl = `https://tisoy.cc/reset-password/${user._id}/${token}`;
+// Send the password reset email
+// Send the password reset email
+const transporter = nodemailer.createTransport({
+  // Configure your email provider details here
+  // For example, for a custom email service:
+  host: 'smtp.godaddy.com',
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL_USERNAME,
+    pass: process.env.EMAIL_PASSWORD
+  }
+});
 
-    // Send the password reset email
-    const transporter = nodemailer.createTransport({
-      service: 'SMTP',
-      host: 'smtp.office365.com',
-      port: 587,
-      secure: false,
-      auth: {
-
-        user: process.env.EMAIL_USERNAME,
-        pass: process.env.EMAIL_PASSWORD
-      }
-    });
-
-    const mailOptions = {
-      from: process.env.EMAIL_USERNAME,
-      to: email, // Use the submitted email from the forgot password form
-      subject: 'Password Reset',
-      text: `Click the following link to reset your password: ${resetUrl}`
-    };
+const mailOptions = {
+  from: process.env.EMAIL_USERNAME,
+  to: email, // Use the submitted email from the forgot password form
+  subject: 'Password Reset',
+  text: `Click the following link to reset your password: ${resetUrl}`
+};
 
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.log(error);
-        return res.status(500).send('An error occurred while sending the email: ' + error.message);
+        return res.status(500).send('An error occurred while sending the email');
       }
       console.log('Email sent: ' + info.response);
       res.redirect('/em-re');
