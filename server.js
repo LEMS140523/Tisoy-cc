@@ -635,7 +635,7 @@ app.get('/index', (req, res) => {
 app.get('/login', (req, res) => {
 res.render('login'); // Assuming you have a 'login' view/template
 });
-app.set('views', path.join(__dirname, '../client/views'));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 const PORT = process.env.PORT || 3000;
