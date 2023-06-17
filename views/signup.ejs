@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+
+<head>
+    <meta charset="utf-8">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="images/favicon.png">
+    <!-- Site Title  -->
+    <title>Sign Up | Tisoy Trading</title>
+    <!-- Vendor Bundle CSS -->
+    <link rel="stylesheet" href="assets/css/vendor.bundle.css?ver=111">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="assets/css/style.css?ver=111">
+    <script type="text/javascript">
+        $(document).ready(function() {
+          $("#form1").submit(function(event) {
+            event.preventDefault();
+      
+            $.ajax({
+              type: 'POST',
+              url: '/signup',
+              data: $('#form1').serialize(),
+              dataType: "json",
+              success: function(response) {
+                $('#form1')[0].reset();
+      
+                alert(response.message);
+      
+                setTimeout(function() {
+                  window.location.href = "/login"; // Redirect to login page
+                }, 6000);
+              },
+              error: function(xhr, status, error) {
+                const response = JSON.parse(xhr.responseText);
+                alert(response.error);
+              }
+            });
+          });
+        });
+      </script>
+      
+
+
+</head>
+
+<body class="user-ath">
+    <div class="user-ath-page">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8 text-center">
+                    <div class="user-ath-logo">
+                        <a href="#">
+                            <img src="/assets/images/tisoy-sm.png" srcset="/assets/images/tisoy-sm2x.png 2x" alt="icon">
+
+                        </a>
+                    </div>
+                    <div class="user-ath-box">
+                        <h4>Creat New Account</h4>
+                        <form action="/signup" class="user-ath-form" id="#form1" method="post">                            <!--
+                            <div class="note note-lg note-no-icon note-danger">
+                                <p>Please check your submited information for error.</p>
+                            </div>
+                            <div class="note note-lg note-no-icon note-success">
+                                <p>Your registration is succesfull, please check you email to confirm.</p>
+                            </div>
+-->
+                            <div class="input-item">
+                                <input type="email" name="email" placeholder="Email" autofocus autocomplete required class="input-bordered">
+                            </div>
+
+                            <div class="input-item">
+                                <input type="password" name="password" placeholder="Password" autofocus autocomplete required class="input-bordered">
+                            </div>
+                            <div class="input-item">
+                                <input type="password" name="passwordConf" placeholder="Confirm Password" autofocus autocomplete required class="input-bordered">
+                            </div>
+                            <div class="gaps"></div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button action="/signup-success" class="btn btn-primary" method="post">Sign Up</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="gaps-2x"></div>
+                    <div class="form-note"> Already a member? <a href="login">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript (include all script here) -->
+    <script src="assets/js/jquery.bundle.js?ver=111"></script>
+    <script src="assets/js/script.js?ver=111"></script>
+</body>
+
+</html>

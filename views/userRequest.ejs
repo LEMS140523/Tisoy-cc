@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+
+<head>
+    <meta charset="utf-8">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="images/favicon.png">
+    <!-- Site Title  -->
+    <title>Dashboard | Tisoy Trading</title>
+    <!-- Vendor Bundle CSS -->
+    <link rel="stylesheet" href="assets/css/vendor.bundle.css?ver=111">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="/assets/css/style.css?ver=111">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+    <style>
+        .btn-xs.btn-warning.active {
+  background-color: #007FFF;
+  color: #fff;
+}
+
+
+    </style>
+
+</head>
+
+<body class="user-dashboard">
+    
+    <!-- Topbar -->
+    <div class="container">
+        <h1>User Request Page</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Unique_Id</th>
+                    <th>Token_Address</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Text</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (typeof userRequests !== 'undefined' && userRequests.length > 0) { %>
+                    <% userRequests.forEach(userRequest => { %>
+                        <tr>
+                            <td><%= userRequest.uniqueId %></td>
+                            <td><%= userRequest.tokenAddress %></td>
+                            <td>$<%= userRequest.amount %> USDT</td>
+                            <td><%= userRequest.date %></td>
+                            <td><%= userRequest.time %></td>             
+                            <td><%= userRequest.text %></td>   
+                        </tr>
+                    <% }); %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="6" class="no-users">No user requests found.</td>
+                    </tr>
+                <% } %>
+            </tbody>
+            
+        </table>
+    </div>
+    <!-- TopBar End -->
+    <div class="user-wraper">
+        <div class="container">
+            <div class="d-flex">
+                <div class="user-sidebar">
+                    <div class="user-sidebar-overlay"></div>
+                    <div class="user-box d-none d-lg-block">
+                        <div class="gaps-1x"></div>
+                       
+                        
+                    </div><!-- .user-box -->
+                    <ul class="user-icon-nav">
+                        <li><a href="/admin"><em class="ti ti-dashboard"></em>Users_Info</a></li>
+                        <li><a href="/userRequest"><em class="ti ti-user"></em>User_Request</a></li>
+                    </ul><!-- .user-icon-nav -->
+                    <div class="user-sidebar-sap"></div><!-- .user-sidebar-sap -->
+                    <ul class="user-nav">
+                        <li>Contact Support<span>help@tisoy.cc</span></li>
+                    </ul><!-- .user-nav -->
+       
+     
+        </div><!-- .container -->
+    </div>
+    <!-- UserWraper End -->
+    <div class="footer-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <span class="footer-copyright">Copyright 2023, <a href="#">Tisoy Trading</a>. All Rights Reserved.</span>
+                </div><!-- .col -->
+                <div class="col-md-5 text-md-end">
+                </div><!-- .col -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </div>
+    <!-- FooterBar End -->
+    <!-- JavaScript (include all script here) -->
+    <script src="assets/js/jquery.bundle.js?ver=111"></script>
+    <script src="assets/js/script.js?ver=111"></script>
+
+    <!-- Include SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+
+</body>
+
+</html>

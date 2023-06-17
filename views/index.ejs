@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+
+<head>
+    <meta charset="utf-8">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="images/favicon.png">
+    <!-- Site Title  -->
+    <title>Dashboard | Tisoy Trading</title>
+    <!-- Vendor Bundle CSS -->
+    <link rel="stylesheet" href="assets/css/vendor.bundle.css?ver=111">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="/assets/css/style.css?ver=111">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+    <style>
+        .btn-xs.btn-warning.active {
+  background-color: #007FFF;
+  color: #fff;
+}
+
+
+    </style>
+
+</head>
+
+
+<body class="user-dashboard">
+    
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="topbar-md d-lg-none">
+            <div class="container">
+                <div class="d-flex align-items-center justify-content-between">
+                    <a href="#" class="toggle-nav">
+                        <div class="toggle-icon">
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                        </div>
+                    </a><!-- .toggle-nav -->
+                    <div class="site-logo">
+                        <a href="/index?uniqueId=<%= uniqueId %>" class="site-brand">
+                         <img class="icon" src="/assets/images/tisoy-banner.png" alt="thumb">
+
+                        </a>
+                    </div><!-- .site-logo -->
+                    <div class="dropdown topbar-action-item topbar-action-user">
+                        <a href="#" data-bs-toggle="dropdown"> <img class="icon" src="/assets/images/tisoy-sm.png" alt="thumb"> </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <div class="user-dropdown">
+                                <div class="user-dropdown-head">
+                                    <h6 class="user-dropdown-name">Unique ID: <span><%= uniqueId %></span></h6>
+                                </div>
+
+                            <div class="user-dropdown-balance">
+                              <h6>USDT BALANCE AVAILABLE</h6>
+                              <h3>$<%= usdtBalance %> USDT</h3>
+                            </div>
+                                <ul class="user-dropdown-btns btn-grp guttar-10px">
+                                    <li><a href="/index?uniqueId=<%= uniqueId %>" class="btn btn-xs btn-warning">Start Trading</a></li>
+                                    <li><a href="/withdraw?uniqueId=<%= uniqueId %>" class="btn btn-xs btn-warning">Withdraw</a></li>
+                                </ul>
+                                <div class="gaps-1x"></div>
+                                <ul class="user-dropdown-links">
+                                    <li><a href="/account?uniqueId=<%= uniqueId %>"> <i class="ti ti-id-badge"></i>Account</a></li>
+                                    <li><a href="/security?uniqueId=<%= uniqueId %>"><i class="ti ti-lock"></i>Security</a></li>
+                                </ul>
+                                <ul class="user-dropdown-links">
+                                    <li><a href="login"><i class="ti ti-power-off"></i>Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .toggle-action -->
+                </div><!-- .container -->
+            </div><!-- .container -->
+        </div><!-- .topbar-md -->
+        <div class="container">
+            <div class="d-lg-flex align-items-center justify-content-between">
+                <div class="topbar-lg d-none d-lg-block">
+                    <div class="site-logo">
+                        <a href="/index?uniqueId=<%= uniqueId %>" class="site-brand">
+                            <img src="/assets/images/tisoy.png" alt="logo" srcset="/assets/images/tisoy2x.png 2x">
+                        </a>
+                    </div><!-- .site-logo -->
+                </div><!-- .topbar-lg -->
+                <div class="topbar-action d-none d-lg-block">
+                    <ul class="topbar-action-list">
+                        <li class="topbar-action-item topbar-action-link">
+                            <a href="/index?uniqueId=<%= uniqueId %>"><em class="ti ti-home"></em> Go to main site</a>
+                        </li><!-- .topbar-action-item -->
+                        <!-- .topbar-action-item -->
+                        <li class="dropdown topbar-action-item topbar-action-user">
+                            <a href="#" data-bs-toggle="dropdown"> <img class="icon" src="/assets/images/user-thumb-sm.png" alt="thumb"> </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <div class="user-dropdown">
+                                    <div class="user-dropdown-head">
+                                    <h6 class="user-dropdown-name">UNIQUE ID: <span><%= uniqueId %></span></h6>
+                                    </div>
+                                    <div class="user-dropdown-balance">
+                                    <h6>USDT BALANCE AVAILABLE</h6>
+                                    <h3>$<%= usdtBalance %> USDT</h3>
+                                </div>
+                                    <ul class="user-dropdown-links">
+                                        <li><a href="/account?uniqueId=<%= uniqueId %>"><i class="ti ti-id-badge"></i>Account</a></li>
+                                        <li><a href="/security?uniqueId=<%= uniqueId %>"><i class="ti ti-lock"></i>Security</a></li>
+                                    </ul>
+                                    <ul class="user-dropdown-links">
+                                        <li><a href="login"><i class="ti ti-power-off"></i>Logout</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li><!-- .topbar-action-item -->
+                    </ul><!-- .topbar-action-list -->
+                </div><!-- .topbar-action -->
+            </div><!-- .d-flex -->
+        </div><!-- .container -->
+    </div>
+    <!-- TopBar End -->
+    <div class="user-wraper">
+        <div class="container">
+            <div class="d-flex">
+                <div class="user-sidebar">
+                    <div class="user-sidebar-overlay"></div>
+                    <div class="user-box d-none d-lg-block">
+                        <div class="user-image">
+                        <img src="/assets/images/user-thumb-lg.png" alt="thumb">
+                        </div>
+                        <div class="gaps-1x"></div>
+                        <div class="user-uid">Unique ID: <span><%= uniqueId %></span></div>
+                        <ul class="btn-grp guttar-10px">
+                            <li><a href="/index?uniqueId=<%= uniqueId %>" class="btn btn-xs btn-warning">Start Trading</a></li>
+                            <li><a href="/withdraw?uniqueId=<%= uniqueId %>" class="btn btn-xs btn-warning">Withdraw</a></li>
+                        </ul>
+                        
+                    </div><!-- .user-box -->
+                    <ul class="user-icon-nav">
+                        <li><a href="/index?uniqueId=<%= uniqueId %>"><em class="ti ti-dashboard"></em>Dashboard</a></li>
+                        <li><a href="/account?uniqueId=<%= uniqueId %>"><em class="ti ti-user"></em>Account</a></li>
+                        <li><a href="/withdraw?uniqueId=<%= uniqueId %>"><em class="ti ti-pie-chart"></em>Withdraw</a></li>
+                        <li><a href="/security?uniqueId=<%= uniqueId %>"><em class="ti ti-lock"></em>Security</a></li>
+                    </ul><!-- .user-icon-nav -->
+                    <div class="user-sidebar-sap"></div><!-- .user-sidebar-sap -->
+                    <ul class="user-nav">
+                        <li>Contact Support<span>help@tisoy.cc</span></li>
+                    </ul><!-- .user-nav -->
+                    <div class="d-lg-none">
+                        <div class="user-sidebar-sap"></div>
+                        <div class="gaps-1x"></div>
+                        <ul class="topbar-action-list">
+                            <li class="topbar-action-item topbar-action-link">
+                                <a href="/index?uniqueId=<%= uniqueId %>"><em class="ti ti-home"></em> Go to main site</a>
+                            </li><!-- .topbar-action-item -->
+                        </ul><!-- .topbar-action-list -->
+                    </div>
+                </div><!-- .user-sidebar -->
+                <div class="user-content">
+                    <div class="user-panel">
+                        <div class="row">
+                          <div class="col-sm-9">
+                            <div class="tile-item tile-primary">
+                              <div class="tile-bubbles"></div>
+                              <h6 class="tile-title">USDT BALANCE AVAILABLE</h6>
+                              <h1 class="tile-info" id="usdtBalance">$<%= usdtBalance %> USDT</h1>
+                            </div>
+                          </div>
+                        </div>
+    
+                        <div class="info-card info-card-bordered">
+                          <div class="row align-items-center">
+                              <div class="col-sm-9 text-center"> <!-- Add 'text-center' class to center align content -->
+
+                                
+                            
+                                  
+                                
+                                <div class="justify-content-center d-flex">
+                                    <script defer src="https://www.livecoinwatch.com/static/lcw-widget.js"></script>
+                                    <div class="livecoinwatch-widget-1 mx-auto chart-container" lcw-coin="BTC" lcw-base="USDT" lcw-secondary="BTC" lcw-period="d" lcw-color-tx="#ffffff" lcw-color-pr="#eaf3fc" lcw-color-bg="#2b56f5" lcw-border-w="0"></div>
+
+
+                                </div>
+                                
+                                  
+                                  <!-- Rest of the content -->
+                                  <ul class="user-dropdown-btns btn-grp guttar-10px">
+                                    <li><a href="" class="btn btn-xs btn-warning position-btn-1" id="btn2" style="width: 185px; height: 30px;">UP Position</a></li>
+                                    <li><a href="" class="btn btn-xs btn-warning position-btn-2" id="btn2" style="width: 185px; height: 30px;">DOWN Position</a></li>
+                                </ul>
+                                
+                                
+                      
+                                  <ul class="user-dropdown-btns btn-grp guttar-10px">
+                                      <li><a href="" class="btn btn-xs btn-warning time-btn-1" id="btn3" style="width: 87px; height: 30px;">3 minutes</a></li>
+                                      <li><a href="" class="btn btn-xs btn-warning time-btn-2" id="btn3" style="width: 87px; height: 30px;">5 minutes</a></li>
+                                      <li><a href="" class="btn btn-xs btn-warning time-btn-3" id="btn3" style="width: 88px; height: 30px;">10 minutes</a></li>
+                                      <li><a href="" class="btn btn-xs btn-warning time-btn-4" id="btn3" style="width: 92px; height: 30px;">30 minutes</a></li>
+                                  </ul>
+                      
+                                  <ul class="user-dropdown-btns btn-grp guttar-10px">
+                                      <li><a href="#" class="btn btn-xs btn-warning USDT-btn-1" id="btn3" style="width: 87px; height: 30px;">10 USDT</a></li>
+                                      <li><a href="#" class="btn btn-xs btn-warning USDT-btn-2" id="btn3" style="width: 87px; height: 30px;">50 USDT</a></li>
+                                      <li><a href="#" class="btn btn-xs btn-warning USDT-btn-3" id="btn3" style="width: 87px; height: 30px;">75 USDT</a></li>
+                                      <li><a href="#" class="btn btn-xs btn-warning USDT-btn-4" id="btn3" style="width: 87px; height: 30px;">100 USDT</a></li>
+                                   
+                                  </ul>
+                                  <div style="display: flex; justify-content: center;">
+                                    <div class="payment-input" style="position: relative; width: 380px;">
+                                        <input class="input-bordered" id="usddiv" type="number" style="width: 100%;">
+                                        <span class="payment-get-cur payment-cal-cur" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">USDT</span>
+                                    </div>
+                                </div>
+                                
+                                <ul class="user-dropdown-btns btn-grp">
+                                  <li>
+                                    <button href="#" class="btn btn-xs btn-warning" id="btn4" style="width: 87px; height: 40px;">SEND TRADING</button>
+                                  </li>
+                                </ul>
+                                
+                                
+                              </div>
+                          </div>
+                      </div>
+                      
+    <!-- FooterBar End -->
+    <!-- JavaScript (include all script here) -->
+    <script src="assets/js/jquery.bundle.js?ver=111"></script>
+    <script src="assets/js/script.js?ver=111"></script>
+
+    <!-- Include SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+    <script>
+$(document).ready(function() {
+  // Retrieve the balance from localStorage
+  var balance = localStorage.getItem('usdtBalance');
+
+
+  // Function to update payment input field
+  function updatePaymentInput(value) {
+    $('#usddiv').val(value);
+  }
+
+  // Function to show success message and deduct amount from balance
+  function sendTrading() {
+    const value = $('#usddiv').val();
+    if (value && !isNaN(value) && parseFloat(value) > 0) {
+      var amount = parseFloat(value);
+      var balance = parseFloat($('#usdtBalance').text().replace("$", "").replace(",", ""));
+      if (amount > balance) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Insufficient Balance',
+          text: 'Amount is not enough!',
+          showConfirmButton: false,
+          timer: 2000
+        });
+        return;
+      }
+      balance -= amount;
+
+      // Update the balance display
+      $('#usdtBalance').text('$' + balance.toLocaleString() + ' USDT');
+
+      updateH3Values(balance);
+
+      // Store the updated balance in localStorage
+      localStorage.setItem('usdtBalance', $('#usdtBalance').text());
+
+      // Send AJAX request to deduct the amount from the user's balance
+      $.ajax({
+        url: '/deduct-amount',
+        method: 'POST',
+        data: { uniqueId: "<%= uniqueId %>", amount: amount },
+        success: function (response) {
+          console.log(response); // Handle success response
+        },
+        error: function (error) {
+          console.error('Error deducting amount', error); // Handle error
+        }
+      });
+
+      // Clear the input field
+      $('#usddiv').val('');
+
+      // Display success message using SweetAlert2
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'Trade sent successfully.',
+        showConfirmButton: false,
+        timer: 2000
+      });
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid Amount',
+        text: 'Please enter a valid amount.',
+        showConfirmButton: false,
+        timer: 2000
+      });
+    }
+  }
+
+  // Add an event listener to the "SEND TRADING" button
+  $('#btn4').on('click', function(e) {
+    e.preventDefault();
+    sendTrading();
+  });
+  // Function to update the h3 elements with the correct balance value
+  function updateH3Values(balance) {
+    $('.user-dropdown-balance h3').text('$' + balance.toLocaleString() + ' USDT');
+  }
+
+  // Event handlers for position buttons
+  $('.position-btn-1').click(function(e) {
+    e.preventDefault();
+    if (!$(this).hasClass('active')) {
+      $('.position-btn-1').addClass('active');
+      $('.position-btn-2').removeClass('active');
+    } else {
+      $(this).removeClass('active');
+    }
+  });
+
+  $('.position-btn-2').click(function(e) {
+    e.preventDefault();
+    if (!$(this).hasClass('active')) {
+      $('.position-btn-1').removeClass('active');
+      $('.position-btn-2').addClass('active');
+    } else {
+      $(this).removeClass('active');
+    }
+  });
+
+  // Event handlers for time buttons
+  $('.time-btn-1').click(function(e) {
+    e.preventDefault();
+    if (!$(this).hasClass('active')) {
+      $('.time-btn-1').addClass('active');
+      $('.time-btn-2').removeClass('active');
+      $('.time-btn-3').removeClass('active');
+      $('.time-btn-4').removeClass('active');
+    } else {
+      $(this).removeClass('active');
+    }
+  });
+
+  $('.time-btn-2').click(function(e) {
+    e.preventDefault();
+    if (!$(this).hasClass('active')) {
+      $('.time-btn-1').removeClass('active');
+      $('.time-btn-2').addClass('active');
+      $('.time-btn-3').removeClass('active');
+      $('.time-btn-4').removeClass('active');
+    } else {
+      $(this).removeClass('active');
+    }
+  });
+
+  $('.time-btn-3').click(function(e) {
+    e.preventDefault();
+    if (!$(this).hasClass('active')) {
+      $('.time-btn-1').removeClass('active');
+      $('.time-btn-2').removeClass('active');
+      $('.time-btn-3').addClass('active');
+      $('.time-btn-4').removeClass('active');
+    } else {
+      $(this).removeClass('active');
+    }
+  });
+
+  $('.time-btn-4').click(function(e) {
+    e.preventDefault();
+    if (!$(this).hasClass('active')) {
+      $('.time-btn-1').removeClass('active');
+      $('.time-btn-2').removeClass('active');
+      $('.time-btn-3').removeClass('active');
+      $('.time-btn-4').addClass('active');
+    } else {
+      $(this).removeClass('active');
+    }
+  });
+
+  // Event handlers for USDT buttons
+  $('.USDT-btn-1').click(function(e) {
+    e.preventDefault();
+    if (!$(this).hasClass('active')) {
+      updatePaymentInput('10');
+      $('.USDT-btn-1').addClass('active');
+      $('.USDT-btn-2').removeClass('active');
+      $('.USDT-btn-3').removeClass('active');
+      $('.USDT-btn-4').removeClass('active');
+    } else {
+      $(this).removeClass('active');
+      updatePaymentInput(''); // Reset the payment input field
+    }
+  });
+
+  $('.USDT-btn-2').click(function(e) {
+    e.preventDefault();
+    if (!$(this).hasClass('active')) {
+      updatePaymentInput('50');
+      $('.USDT-btn-1').removeClass('active');
+      $('.USDT-btn-2').addClass('active');
+      $('.USDT-btn-3').removeClass('active');
+      $('.USDT-btn-4').removeClass('active');
+    } else {
+      $(this).removeClass('active');
+      updatePaymentInput(''); // Reset the payment input field
+    }
+  });
+
+  $('.USDT-btn-3').click(function(e) {
+    e.preventDefault();
+    if (!$(this).hasClass('active')) {
+      updatePaymentInput('75');
+      $('.USDT-btn-1').removeClass('active');
+      $('.USDT-btn-2').removeClass('active');
+      $('.USDT-btn-3').addClass('active');
+      $('.USDT-btn-4').removeClass('active');
+    } else {
+      $(this).removeClass('active');
+      updatePaymentInput(''); // Reset the payment input field
+    }
+  });
+
+  $('.USDT-btn-4').click(function(e) {
+    e.preventDefault();
+    if (!$(this).hasClass('active')) {
+      updatePaymentInput('100');
+      $('.USDT-btn-1').removeClass('active');
+      $('.USDT-btn-2').removeClass('active');
+      $('.USDT-btn-3').removeClass('active');
+      $('.USDT-btn-4').addClass('active');
+    } else {
+      $(this).removeClass('active');
+      updatePaymentInput(''); // Reset the payment input field
+    }
+  });
+}); // <-- Closing bracket for $(document).ready()
+
+  
+    </script>
+</body>
+
+</html>

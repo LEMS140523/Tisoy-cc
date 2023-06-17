@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+
+<head>
+    <meta charset="utf-8">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="images/favicon.png">
+    <!-- Site Title  -->
+    <title>Withdraw | Tisoy Trading</title>
+    <!-- Vendor Bundle CSS -->
+    <link rel="stylesheet" href="assets/css/vendor.bundle.css?ver=111">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="assets/css/style.css?ver=111">
+</head>
+<style>
+    .btn.btn-primary { position: relative; 
+        color: #fff; 
+        padding: 10px 30px; 
+        font-size: 14px;
+         line-height: 24px;
+          letter-spacing: 0.1em;
+           border-radius: 4px; 
+           text-transform: uppercase; 
+           transition: all .4s ease; }
+
+</style>
+
+<body class="user-dashboard">
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="topbar-md d-lg-none">
+            <div class="container">
+                <div class="d-flex align-items-center justify-content-between">
+                    <a href="#" class="toggle-nav">
+                        <div class="toggle-icon">
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                        </div>
+                    </a><!-- .toggle-nav -->
+                    <div class="site-logo">
+                        <a href="/index?uniqueId=<%= uniqueId %>" class="site-brand">
+                            <img src="/assets/images/tisoy.png" alt="logo" srcset="/assets/images/tisoy2x.png 2x">
+                        </a>
+                    </div><!-- .site-logo -->
+                    <div class="dropdown topbar-action-item topbar-action-user">
+                        <a href="#" data-bs-toggle="dropdown"> <img class="icon" src="/assets/images/user-thumb-sm.png" alt="thumb"> </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <div class="user-dropdown">
+                                <div class="user-dropdown-head">
+                                    <h6 class="user-dropdown-name">Unique ID: <span><%= uniqueId %></span></h6>
+                                </div>
+                                <div class="user-dropdown-balance">
+                                    <h6>USDT BALANCE AVAILABLE</h6>
+                                    <h3 id="usdtBalance">$<%= usdtBalance %> USDT</h3>
+                                    
+                                </div>
+                                <ul class="user-dropdown-btns btn-grp guttar-10px">
+                            <li><a href="/index?uniqueId=<%= uniqueId %>" class="btn btn-xs btn-warning">Start Trading</a></li>
+                            <li><a href="/withdraw?uniqueId=<%= uniqueId %>" class="btn btn-xs btn-warning">Withdraw</a></li>
+                                </ul>
+                                <div class="gaps-1x"></div>
+                                <ul class="user-dropdown-links">
+                                    <li><a href="/account?uniqueId=<%= uniqueId %>"><i class="ti ti-id-badge"></i>Account</a></li>
+                                    <li><a href="/security?uniqueId=<%= uniqueId %>"><i class="ti ti-lock"></i>Security</a></li>
+                                </ul>
+                                <ul class="user-dropdown-links">
+                                    <li><a href="login"><i class="ti ti-power-off"></i>Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .toggle-action -->
+                </div><!-- .container -->
+            </div><!-- .container -->
+        </div><!-- .topbar-md -->
+        <div class="container">
+            <div class="d-lg-flex align-items-center justify-content-between">
+                <div class="topbar-lg d-none d-lg-block">
+                    <div class="site-logo">
+                        <a href="/index?uniqueId=<%= uniqueId %>" class="site-brand">
+                            <img src="/assets/images/tisoy.png" alt="logo" srcset="images/tisoy2x.png 2x">
+                        </a>
+                    </div><!-- .site-logo -->
+                </div><!-- .topbar-lg -->
+                <div class="topbar-action d-none d-lg-block">
+                    <ul class="topbar-action-list">
+                        <li class="topbar-action-item topbar-action-link">
+                            <a href="/index?uniqueId=<%= uniqueId %>"><em class="ti ti-home"></em> Go to main site</a>
+                        </li><!-- .topbar-action-item -->
+                        <!-- .topbar-action-item -->
+                        <li class="dropdown topbar-action-item topbar-action-user">
+                            <a href="#" data-bs-toggle="dropdown"> <img class="icon" src="/assets/images/user-thumb-sm.png" alt="thumb"> </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <div class="user-dropdown">
+                                    <div class="user-dropdown-head">
+                                    <h6 class="user-dropdown-name">UNIQUE ID: <span><%= uniqueId %></span></h6>
+                                    </div>
+                                    <div class="user-dropdown-balance">
+                                        <h6>USDT BALANCE AVAILABLE</h6>
+                                        <h3 id="usdtBalance">$<%= usdtBalance %> USDT</h3>
+                                        
+                                </div>
+                                    <ul class="user-dropdown-links">
+                                        <li><a href="/account?uniqueId=<%= uniqueId %>"><i class="ti ti-id-badge"></i>Account</a></li>
+                                        <li><a href="/security?uniqueId=<%= uniqueId %>"><i class="ti ti-lock"></i>Security</a></li>
+                                    </ul>
+                                    <ul class="user-dropdown-links">
+                                        <li><a href="login"><i class="ti ti-power-off"></i>Logout</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li><!-- .topbar-action-item -->
+                    </ul><!-- .topbar-action-list -->
+                </div><!-- .topbar-action -->
+            </div><!-- .d-flex -->
+        </div><!-- .container -->
+    </div>
+    <!-- TopBar End -->
+    <div class="user-wraper">
+        <div class="container">
+            <div class="d-flex">
+                <div class="user-sidebar">
+                    <div class="user-sidebar-overlay"></div>
+                    <div class="user-box d-none d-lg-block">
+                        <div class="user-image">
+                            <img src="/assets/images/user-thumb-lg.png" alt="thumb">
+                            
+                        </div>
+                        <div class="gaps-1x"></div>
+                        <div class="user-uid">Unique ID: <span><%= uniqueId %></span></div>
+                        <ul class="btn-grp guttar-10px">
+                            <li><a href="/index?uniqueId=<%= uniqueId %>" class="btn btn-xs btn-warning">Start Trading</a></li>
+                            <li><a href="/withdraw?uniqueId=<%= uniqueId %>" class="btn btn-xs btn-warning">Withdraw</a></li>
+                        </ul>
+                    </div><!-- .user-box -->
+                    <ul class="user-icon-nav">
+                        <li><a href="/index?uniqueId=<%= uniqueId %>"><em class="ti ti-dashboard"></em>Dashboard</a></li>
+						<li><a href="/account?uniqueId=<%= uniqueId %>"><em class="ti ti-user"></em>Account</a></li>
+                        <li><a href="/withdraw?uniqueId=<%= uniqueId %>"><em class="ti ti-pie-chart"></em>Withdraw</a></li>
+                        <li><a href="/security?uniqueId=<%= uniqueId %>"><em class="ti ti-lock"></em>Security</a></li>
+                    </ul><!-- .user-icon-nav -->
+                    <div class="user-sidebar-sap"></div><!-- .user-sidebar-sap -->
+                    <ul class="user-nav">
+                        <li>Contact Support<span>help@tisoy.cc</span></li>
+                    </ul><!-- .user-nav -->
+                    <div class="d-lg-none">
+                        <div class="user-sidebar-sap"></div>
+                        <div class="gaps-1x"></div>
+                        <ul class="topbar-action-list">
+                            <li class="topbar-action-item topbar-action-link">
+                                <a href="/index?uniqueId=<%= uniqueId %>"><em class="ti ti-home"></em> Go to main site</a>
+                            </li><!-- .topbar-action-item -->
+                            <!-- .topbar-action-item -->
+                        </ul><!-- .topbar-action-list -->
+                    </div>
+                </div><!-- .user-sidebar -->
+                <div class="user-content">
+                    <div class="user-panel">
+                        <h2 class="user-panel-title">Withdraw</h2>
+                        <form action="#">
+                            <h5 class="user-panel-subtitle">Select the available token to withdraw</h5>
+                            <div class="gaps-1x"></div>
+                            <div class="payment-list">
+                                <div class="row">
+								    <div class="col-md-3 col-sm-6">
+                                        <div class="payment-item">
+                                            <input class="payment-check" type="radio" id="payusd" name="payOption" value="tranxUSD" checked>
+                                            <label for="payusd">
+                                                <div class="payment-icon payment-icon-usd"><img src="/assets/images/usdt.png" alt="icon"></em></div>
+                                                <span class="payment-cur">USDT</span>
+                                            </label>
+                                            <span class="mt-3">$1 USDT FEE</span>
+                                        </div>
+                                    </div>
+                                    <!-- .col -->
+									<div class="col-md-3 col-sm-6">
+                                        <div class="payment-item">
+                                            <input class="payment-check" type="radio" id="payeth" name="payOption" value="tranxETH">
+                                            <label for="payeth">
+                                                <div class="payment-icon payment-icon-eth"><img src="/assets/images/eth.png" alt="icon"></div>
+                                                <span class="payment-cur">Ethereum</span>
+                                            </label>
+                                            <span class="mt-3">TOKEN NOT AVAILABLE</span>
+                                        </div>
+                                    </div>
+									<!-- .col -->
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="payment-item">
+                                            <input class="payment-check" type="radio" id="paylightcoin" name="payOption" value="tranxLTC">
+                                            <label for="paylightcoin">
+                                                <div class="payment-icon payment-icon-ltc"><img class="payment-icon" src="/assets/images/ltc.png" alt="icon"></div>
+                                                <span class="payment-cur">Litecoin</span>
+                                            </label>
+                                            <span class="mt-3">TOKEN NOT AVAILABLE</span>
+                                        </div>
+                                    </div><!-- .col -->
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="payment-item">
+                                            <input class="payment-check" type="radio" id="paybtc" name="payOption" value="tranxBTC">
+                                            <label for="paybtc">
+                                                <div class="payment-icon payment-icon-btc"><img src="/assets/images/btc.png" alt="icon"></em></div>
+                                                <span class="payment-cur">Bitcoin</span>
+                                            </label>
+                                            <span class="mt-3">TOKEN NOT AVAILABLE</span>
+                                        </div>
+                                    </div><!-- .col -->
+                                    <!-- .col -->
+                                </div><!-- .row -->
+                            </div><!-- .payment-list -->
+                            <div class="gaps-1x"></div>
+                            <h5 class="user-panel-subtitle">Please add your wallet address to receive your funds</h5>
+                            <div class="note note-plane note-danger">
+                                    <em class="fas fa-info-circle"></em>
+                                    <p>Important: Please make sure to enter your wallet address correctly. If you make a mistake with your wallet address, the funds will be lost, and there is no way to recover them.</p>
+                                </div>                            <div class="gaps-1x"></div>
+                            <form action="#">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="input-item input-with-label">
+                                                <label for="swalllet" class="input-item-label">Select Wallet </label>
+                                                <select class="input-bordered" name="swalllet" id="swalllet">
+												    <option value="tether">USDT (SOLANA NETWORK)</option>
+                                                    <option value="eth">Ethereum (TOKEN NOT AVAILABLE)</option>
+                                                    <option value="ltc">Litecoin (TOKEN NOT AVAILABLE)</option>
+                                                    <option value="btc">Bitcoin (TOKEN NOT AVAILABLE)</option>
+                                                </select>
+                                            </div><!-- .input-item -->
+                                        </div><!-- .col -->
+                                        <div class="col-md-6">
+                                            <div class="input-item input-with-label">
+                                                <label for="swalllet" class="input-item-label">Enter a amount to withdraw</label>
+                                                <div class="payment-input">
+                                                    <input class="input-bordered" id="usddiv" type="number">
+            
+                                                    <span class="payment-get-cur payment-cal-cur">USDT</span>
+                                                  </div>
+                                              
+                                            </div><!-- .input-item -->
+                                        </div><!-- .col -->
+
+                                    </div><!-- .row -->
+
+                     
+
+
+                                    <div class="input-item input-with-label">
+                                        <label for="token-address" class="input-item-label">Your wallet address:</label>
+                                        <input class="input-bordered" type="text" id="token-address" name="token-address" placeholder="Enter You Wallet Address">
+                                        <span class="input-note">Estimated time to receive funds: 5 to 10 minutes.</span>
+                                      </div>
+                                      
+                                      <!-- .input-item -->
+                                    <div class="gaps-1x"></div><!-- 10px gap -->
+                                    <div class="d-sm-flex justify-content-between align-items-center">
+                                        <button type="button" class="btn btn-primary" id="btn-4" onclick="deductAmount()">Withdraw</button>
+                                        <div class="gaps-2x d-sm-none"></div>
+                                    </div>
+                                </form><!-- .row -->
+                            <div class="gaps-1x"></div><!-- .payment-summary -->
+                        </form><!-- form -->
+                    </div><!-- .user-panel -->
+                </div><!-- .user-content -->
+            </div><!-- .d-flex -->
+        </div><!-- .container -->
+    </div>
+    <!-- UserWraper End -->
+    <!-- Modal End -->
+    <div class="footer-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <span class="footer-copyright">Copyright 2023, <a href="#">Tisoy Trading</a>. All Rights Reserved.</span>
+                </div><!-- .col -->
+                <div class="col-md-5 text-md-end">
+                </div><!-- .col -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </div>
+    <!-- FooterBar End -->
+    <!-- JavaScript (include all script here) -->
+    <script src="assets/js/jquery.bundle.js?ver=111"></script>
+    <script src="assets/js/script.js?ver=111"></script>
+
+    <!-- Include SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+    <script>
+$(document).ready(function() {
+  // Function to show success message and deduct amount from balance
+  function Withdraw() {
+    const value = $('#usddiv').val();
+    const tokenAddress = $('#token-address').val(); // Get the token address from the input field
+    if (value && !isNaN(value) && parseFloat(value) > 0) {
+      var amount = parseFloat(value);
+      var balance = parseFloat($('#usdtBalance').text().replace("$", "").replace(",", ""));
+      if (amount > balance) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Insufficient Balance',
+          text: 'Amount is not enough!',
+          showConfirmButton: false,
+          timer: 2000
+        });
+        return;
+      }
+      balance -= amount;
+
+      // Update the balance display
+      $('#usdtBalance').text('$' + balance.toLocaleString() + ' USDT');
+
+      updateH3Values(balance);
+
+      // Store the updated balance in localStorage
+      localStorage.setItem('usdtBalance', $('#usdtBalance').text());
+
+      // Send AJAX request to deduct the amount from the user's balance
+      $.ajax({
+        url: '/deduct-amount',
+        method: 'POST',
+        data: { uniqueId: "<%= uniqueId %>", amount: amount },
+        success: function (response) {
+          console.log(response); // Handle success response
+        },
+        error: function (error) {
+          console.error('Error deducting amount', error); // Handle error
+        }
+      });
+
+      // Clear the input fields
+      $('#usddiv').val('');
+      $('#token-address').val('');
+
+      // Display success message using SweetAlert2
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'Withdraw Request sent successfully.',
+        showConfirmButton: false,
+        timer: 2000
+      });
+
+      var currentDate = new Date();
+      var request = {
+        uniqueId: "<%= uniqueId %>",
+        amount: amount,
+        tokenAddress: tokenAddress, // Include the token address in the request
+        date: currentDate.toLocaleDateString(),
+        time: currentDate.toLocaleTimeString(),
+        text: "This user made a Withdraw Request"
+      };
+
+      $.ajax({
+        url: '/user-request',
+        method: 'POST',
+        data: request,
+        success: function (response) {
+          console.log(response); // Handle success response
+        },
+        error: function (error) {
+          console.error('Error sending user request', error); // Handle error
+        }
+      });
+    }
+    else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid Amount',
+        text: 'Please enter a valid amount.',
+        showConfirmButton: false,
+        timer: 2000
+      });
+    }
+  }
+
+  // Add an event listener to the "SEND TRADING" button
+  $('#btn-4').on('click', function(e) {
+    e.preventDefault();
+    Withdraw();
+  });
+
+  // Function to update the h3 elements with the correct balance value
+  function updateH3Values(balance) {
+    $('.user-dropdown-balance h3').text('$' + balance.toLocaleString() + ' USDT');
+  }
+});
+
+</script>
+</body>
+
+</html>

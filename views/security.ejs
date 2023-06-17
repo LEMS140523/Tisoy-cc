@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+
+<head>
+    <meta charset="utf-8">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="images/favicon.png">
+    <!-- Site Title  -->
+    <title>Security | Tisoy Trading</title>
+    <!-- Vendor Bundle CSS -->
+    <link rel="stylesheet" href="assets/css/vendor.bundle.css?ver=111">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="assets/css/style.css?ver=111">
+</head>
+
+<body class="user-dashboard">
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="topbar-md d-lg-none">
+            <div class="container">
+                <div class="d-flex align-items-center justify-content-between">
+                    <a href="#" class="toggle-nav">
+                        <div class="toggle-icon">
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                        </div>
+                    </a><!-- .toggle-nav -->
+                    <div class="site-logo">
+                        <a href="/index?uniqueId=<%= uniqueId %>" class="site-brand">
+                            <img src="/assets/images/tisoy.png" alt="logo" srcset="/assets/images/tisoy2x.png 2x">
+                        </a>
+                    </div><!-- .site-logo -->
+                    <div class="dropdown topbar-action-item topbar-action-user">
+                        <a href="#" data-bs-toggle="dropdown"> <img class="icon" src="/assets/images/user-thumb-sm.png" alt="thumb"> </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <div class="user-dropdown">
+                                <div class="user-dropdown-head">
+                                    <h6 class="user-dropdown-name">UNIQUE ID: <span> <%= uniqueId %></span></h6>
+                                    <div class="gaps-1x"></div>
+                                </div>
+                                <div class="user-dropdown-balance">
+                                    <h6>USDT BALANCE AVAILABLE</h6>
+                                    <h3>$<%= usdtBalance %> USDT</h3>
+                                </div>
+                                <ul class="user-dropdown-btns btn-grp guttar-10px">
+                            <li><a href="/index?uniqueId=<%= uniqueId %>" class="btn btn-xs btn-warning">Start Trading</a></li>
+                            <li><a href="/withdraw?uniqueId=<%= uniqueId %>" class="btn btn-xs btn-warning">Withdraw</a></li>
+                                </ul>
+                                <div class="gaps-1x"></div>
+                                <ul class="user-dropdown-links">
+                                    <li><a href="/account?uniqueId=<%= uniqueId %>"><i class="ti ti-id-badge"></i>Account</a></li>
+                                    <li><a href="/security?uniqueId=<%= uniqueId %>"><i class="ti ti-lock"></i>Security</a></li>
+                                </ul>
+                                <ul class="user-dropdown-links">
+                                    <li><a href="login"><i class="ti ti-power-off"></i>Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .toggle-action -->
+                </div><!-- .container -->
+            </div><!-- .container -->
+        </div><!-- .topbar-md -->
+        <div class="container">
+            <div class="d-lg-flex align-items-center justify-content-between">
+                <div class="topbar-lg d-none d-lg-block">
+                    <div class="site-logo">
+                        <a href="/index?uniqueId=<%= uniqueId %>" class="site-brand">
+                            <img src="/assets/images/tisoy.png" alt="logo" srcset="/assets/images/tisoy2x.png 2x">
+                        </a>
+                    </div><!-- .site-logo -->
+                </div><!-- .topbar-lg -->
+                <div class="topbar-action d-none d-lg-block">
+                    <ul class="topbar-action-list">
+                        <li class="topbar-action-item topbar-action-link">
+                            <a href="/index?uniqueId=<%= uniqueId %>"><em class="ti ti-home"></em> Go to main site</a>
+                        </li><!-- .topbar-action-item -->
+                        <!-- .topbar-action-item -->
+                        <li class="dropdown topbar-action-item topbar-action-user">
+                            <a href="#" data-bs-toggle="dropdown"> <img class="icon" src="/assets/images/user-thumb-sm.png" alt="thumb"> </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <div class="user-dropdown">
+                                    <div class="user-dropdown-head">
+                                    <h6 class="user-dropdown-name">UNIQUE ID: <span> <%= uniqueId %></span></h6>
+                                    <div class="gaps-1x"></div>
+                                    </div>
+                                    <div class="user-dropdown-balance">
+                                        <h6>USDT BALANCE AVAILABLE</h6>
+                                        <h3>$<%= usdtBalance %> USDT</h3>
+                                </div>
+                                    <ul class="user-dropdown-links">
+                                        <li><a href="/account?uniqueId=<%= uniqueId %>"><i class="ti ti-id-badge"></i>Account</a></li>
+                                        <li><a href="/security?uniqueId=<%= uniqueId %>"><i class="ti ti-lock"></i>Security</a></li>
+                                    </ul>
+                                    <ul class="user-dropdown-links">
+                                        <li><a href="login"><i class="ti ti-power-off"></i>Logout</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li><!-- .topbar-action-item -->
+                    </ul><!-- .topbar-action-list -->
+                </div><!-- .topbar-action -->
+            </div><!-- .d-flex -->
+        </div><!-- .container -->
+    </div>
+    <!-- TopBar End -->
+    <div class="user-wraper">
+        <div class="container">
+            <div class="d-flex">
+                <div class="user-sidebar">
+                    <div class="user-sidebar-overlay"></div>
+                    <div class="user-box d-none d-lg-block">
+                        <div class="user-image">
+                            <img src="/assets/images/user-thumb-lg.png" alt="thumb">
+                        </div>
+                        <div class="gaps-1x"></div>
+                        <div class="user-uid">Unique ID: <span><%= uniqueId %></span></div>
+                        <ul class="btn-grp guttar-10px">
+                            <li><a href="/index?uniqueId=<%= uniqueId %>" class="btn btn-xs btn-warning">Start Trading</a></li>
+                            <li><a href="/withdraw?uniqueId=<%= uniqueId %>" class="btn btn-xs btn-warning">Withdraw</a></li>
+                        </ul>
+                    </div><!-- .user-box -->
+                    <ul class="user-icon-nav">
+                        <li><a href="/index?uniqueId=<%= uniqueId %>"><em class="ti ti-dashboard"></em>Dashboard</a></li>
+						<li><a href="/account?uniqueId=<%= uniqueId %>"><em class="ti ti-user"></em>Account</a></li>
+                        <li><a href="/withdraw?uniqueId=<%= uniqueId %>"><em class="ti ti-pie-chart"></em>Withdraw</a></li>
+                        <li><a href="/security?uniqueId=<%= uniqueId %>"><em class="ti ti-lock"></em>Security</a></li>
+                    </ul><!-- .user-icon-nav -->
+                    <div class="user-sidebar-sap"></div><!-- .user-sidebar-sap -->
+                    <ul class="user-nav">
+                        <li>Contact Support<span>help@tisoy.cc</span></li>
+                    </ul><!-- .user-nav -->
+                    <div class="d-lg-none">
+                        <div class="user-sidebar-sap"></div>
+                        <div class="gaps-1x"></div>
+                        <ul class="topbar-action-list">
+                            <li class="topbar-action-item topbar-action-link">
+                                <a href="/index?uniqueId=<%= uniqueId %>"><em class="ti ti-home"></em> Go to main site</a>
+                            </li><!-- .topbar-action-item -->
+                            <!-- .topbar-action-item -->
+                        </ul><!-- .topbar-action-list -->
+                    </div>
+                </div><!-- .user-sidebar -->
+                <div class="user-content">
+                    <div class="user-panel">
+                        <h2 class="user-panel-title">Security Settings</h2>
+                        <p>You can take control of your password and account-access settings.</p>
+                        <ul class="nav nav-tabs nav-tabs-line" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-bs-toggle="tab" href="#password-opt">Change Password</a>
+                            </li>
+                        </ul><!-- .nav-tabs-line -->
+                       <!-- .tab-pane -->
+                            <div class="tab-pane fade active show" id="password-opt">
+                                <form action="/security?uniqueId=<%= uniqueId %>" method="POST">
+
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="input-item input-with-label">
+                                                <label for="oldPassword" class="input-item-label">Old Password</label>
+                                                <input class="input-bordered" type="oldpassword" id="oldPassword" name="oldPassword" required>
+                                            </div><!-- .input-item -->
+                                        </div><!-- .col -->
+                                    </div><!-- .row -->
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="input-item input-with-label">
+                                                <label for="new-password" class="input-item-label">New Password</label>
+                                                <input class="input-bordered" type="password" id="newPassword" name="newPassword" required>                                            </div><!-- .input-item -->
+                                        </div><!-- .col -->
+                                        <div class="col-lg-6">
+                                            <div class="input-item input-with-label">
+                                                <label for="passwordConf" class="input-item-label">Confirm New Password</label>
+                                                <input class="input-bordered" type="password" id="confirmPassword" name="confirmPassword" required>
+                                            </div><!-- .input-item -->
+                                        </div><!-- .col -->
+                                    </div><!-- .row -->
+                                    <div class="note note-plane note-info">
+                                        <em class="fas fa-info-circle"></em>
+                                        <p>Your password is your responsibility. Make sure to remember it!</p>
+                                    </div>
+                                    <div class="gaps-3x"></div>
+                                    <div class="gaps-1x"></div><!-- 10px gap -->
+                                    <div class="d-sm-flex justify-content-between align-items-center">
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                    </div>
+                                </form><!-- form -->
+                            </div><!-- .tab-pane -->
+                        </div><!-- .tab-content -->
+                    </div><!-- .user-panel -->
+                </div><!-- .user-content -->
+            </div><!-- .d-flex -->
+        </div><!-- .container -->
+    </div>
+    <!-- UserWraper End -->
+    <div class="footer-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <span class="footer-copyright">Copyright 2023, <a href="#">Tisoy Trading</a>. All Rights Reserved.</span>
+                </div><!-- .col -->
+                <div class="col-md-5 text-md-end">
+                </div><!-- .col -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </div>
+    <!-- FooterBar End -->
+    <!-- JavaScript (include all script here) -->
+    <script src="assets/js/jquery.bundle.js?ver=111"></script>
+    <script src="assets/js/script.js?ver=111"></script>
+</body>
+
+</html>
