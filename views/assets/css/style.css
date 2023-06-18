@@ -1372,7 +1372,6 @@ select:focus { outline: none; border: none; }
 .user-nav li span { font-weight: 400; text-transform: none; display: block; color: #304073; font-size: 13px; }
 
 .user-nav li.active a { color: #2b56f5; }
-
 .user-ath {
   background: url(../images/bg-ath.png) no-repeat 50% 50%, #eaf3fc;
   background-size: cover;
@@ -1445,7 +1444,6 @@ select:focus { outline: none; border: none; }
     margin-top: 10px;
   }
 }
-
 
 @media (min-width: 576px) { .user-dashboard { padding-top: 200px; }
   .user-panel { padding: 30px; } }
