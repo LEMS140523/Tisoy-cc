@@ -12,6 +12,87 @@
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="assets/css/style.css?ver=111">
 
+    <style>
+        .user-ath {
+  background: url(../images/bg-ath.png) no-repeat 50% 50%, #eaf3fc;
+  background-size: cover;
+}
+
+.user-ath-page {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.user-ath-logo {
+  margin-bottom: 25px;
+}
+
+.user-ath-box {
+  position: relative;
+  padding: 45px 40px 40px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.05);
+}
+
+.user-ath-box:after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 5px;
+  width: 100%;
+  content: '';
+  background: repeating-linear-gradient(
+    90deg,
+    #00bffa 0%,
+    #00bffa 33.34%,
+    #1b57fe 33.35%,
+    #1b57fe 66.68%,
+    #8255fd 66.69%,
+    #8255fd 100%
+  );
+  background-size: 50.5%;
+  overflow: hidden;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.user-ath-form .note {
+  margin-bottom: 15px;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 576px) {
+  .user-ath-box {
+    padding: 25px;
+  }
+
+  .input-item {
+    margin-bottom: 15px;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  .simple-link {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  .form-note {
+    font-size: 14px;
+  }
+}
+
+    </style>
 </head>
 
 <body class="user-ath">
