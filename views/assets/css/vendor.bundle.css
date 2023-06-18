@@ -212,7 +212,9 @@ progress { vertical-align: baseline; }
 
 @media (min-width: 576px) { .container, .container-sm { max-width: 540px; } }
 
-@media (min-width: 768px) { .container, .container-md, .container-sm { max-width: 1000px; max-height: 700px; } }
+@media (min-width: 368px) { .container, .container-md, .container-sm { max-width: 1000px; max-height: 700px; } }
+
+@media (min-width: 768px) { .container, .container-md, .container-sm { max-width: 720px; } }
 
 @media (min-width: 992px) { .container, .container-lg, .container-md, .container-sm { max-width: 960px; } }
 
