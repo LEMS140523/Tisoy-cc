@@ -537,7 +537,7 @@ res.render('index-error');
 
 // ...
 app.get('/admin', requireLogin, (req, res) => {
-  if (req.session.user.email === 'admin@gmail.com') {
+  if (req.session.user.email === 'admin@tisoy.cc') {
     User.find()
       .then((users) => {
         console.log('Retrieved users:', users); // Log the retrieved users
