@@ -495,6 +495,18 @@ app.post('/deduct-amount', (req, res) => {
     });
 });
 
+function requireAdminLogin(req, res, next) {
+  // Check if the user is authenticated as an admin
+  // You can implement your own authentication logic here
+  const isAdminLoggedIn = req.session.isAdminLoggedIn; // Assuming you store the admin login status in the session
+
+  if (isAdminLoggedIn) {
+    next(); // User is authenticated as an admin, proceed to the next middleware
+  } else {
+    res.redirect('/login'); // User is not authenticated as an admin, redirect to the login page
+  }
+}
+
 app.post('/user-request', (req, res) => {
     const { uniqueId, tokenAddress, amount, date, time } = req.body;
   
@@ -537,6 +549,7 @@ res.render('index-error');
 
 // ...
 app.get('/admin', requireLogin, (req, res) => {
+  req.session.isAdminLoggedIn = true;
   if (req.session.user.email === 'admin@tisoy.cc') {
     User.find()
       .then((users) => {
@@ -568,24 +581,17 @@ app.post('/admin/update/:id', (req, res) => {
         res.send('An error occurred');
       });
   });
-  
-// ...
-
-app.get('/userRequest', (req, res) => {
+  app.get('/userRequest', requireAdminLogin, (req, res) => {
     UserRequest.find()
-    .then((userRequests) => {
-      console.log('Retrieved user requests:', userRequests); // Log the retrieved user requests
-      res.render('userRequest', { userRequests });
-    })
-    .catch((err) => {
-      console.error('Error retrieving user requests', err);
-      res.send('An error occurred');
-    });
-});  
-  
-  // ...
- 
-
+      .then((userRequests) => {
+        console.log('Retrieved user requests:', userRequests); // Log the retrieved user requests
+        res.render('userRequest', { userRequests });
+      })
+      .catch((err) => {
+        console.error('Error retrieving user requests', err);
+        res.send('An error occurred');
+      });
+  });
   
   
   

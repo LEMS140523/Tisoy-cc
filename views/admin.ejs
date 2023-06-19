@@ -57,29 +57,28 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Mongo ID</th>
-                            <th>Balance</th>
                             <th>Unique ID</th>
+                            <th>Balance</th>
                             <th>Email</th>
                             <th>Password</th>
-                            <th>Confirm Password</th>
+                  
                         </tr>
                     </thead>
                     <tbody>
                         <% if (typeof users !== 'undefined' && users.length > 0) { %>
                             <% users.forEach(user => { %>
                                 <tr>
-                                    <td><%= user._id %></td>
+                                    <td><%= user.unique_id %></td>
                                     <td>
                                         <form action="/admin/update/<%= user._id %>" method="POST">
                                             <input type="number" name="usdtBalance" value="<%= user.usdtBalance %>">
                                             <button type="submit">Update</button>
                                         </form>
                                     </td>
-                                    <td><%= user.unique_id %></td>
+                               
                                     <td><%= user.email %></td>
                                     <td><%= user.password %></td>
-                                    <td><%= user.passwordConf %></td>
+                      
                                 </tr>
                             <% }); %>
                         <% } else { %>
