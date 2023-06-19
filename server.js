@@ -72,7 +72,6 @@ const userRequestSchema = new mongoose.Schema({
   amount: { type: Number, required: true },
   date: { type: String, required: true },
   time: { type: String, required: true },
-  text: { type: String, required: true},
 });
 
 const UserRequest = mongoose.model('UserRequest', userRequestSchema);
@@ -509,7 +508,7 @@ app.post('/user-request', (req, res) => {
   
     userRequest.save((err) => {
       if (err) {
-        console.error('Error saving your request to database:', err);
+        console.error(err);
         res.status(500).json({ error: 'Failed to save your request' });
       } else {
         console.log('User request saved successfully');

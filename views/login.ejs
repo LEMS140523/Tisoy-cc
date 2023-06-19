@@ -11,95 +11,73 @@
     <link rel="stylesheet" href="assets/css/vendor.bundle.css?ver=111">
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="assets/css/style.css?ver=111">
-
+    
     <style>
         .user-ath {
-  background: url(../images/bg-ath.png) no-repeat 50% 50%, #eaf3fc;
-  background-size: cover;
-}
+            background: url(../images/bg-ath.png) no-repeat 50% 50%, #eaf3fc;
+            background-size: cover;
+        }
 
-.user-ath-page {
-  display: flex;
-  min-height: 100vh;
-  align-items: center;
-  padding: 40px 0;
-}
+        .user-ath-page {
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            padding: 40px 0;
+        }
 
-.user-ath-logo {
-  margin-bottom: 25px;
-}
+        .user-ath-logo {
+            margin-bottom: 25px;
+        }
 
-.user-ath-box {
-  position: relative;
-  padding: 45px 40px 40px;
-  background: #fff;
-  border-radius: 4px;
-  box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.05);
-}
+        .user-ath-box {
+            position: relative;
+            padding: 45px 40px 40px;
+            background: #fff;
+            border-radius: 4px;
+            box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.05);
+            width: 100%; /* Set the width to 100% */
+            max-width: 400px;
+            margin: 0 auto; /* Center the card horizontally */
+        }
 
-.user-ath-box:after {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 5px;
-  width: 100%;
-  content: '';
-  background: repeating-linear-gradient(
-    90deg,
-    #00bffa 0%,
-    #00bffa 33.34%,
-    #1b57fe 33.35%,
-    #1b57fe 66.68%,
-    #8255fd 66.69%,
-    #8255fd 100%
-  );
-  background-size: 50.5%;
-  overflow: hidden;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
+        .user-ath-box:after {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 5px;
+            width: 100%;
+            content: '';
+            background: repeating-linear-gradient(90deg, #00bffa 0%, #00bffa 33.34%, #1b57fe 33.35%, #1b57fe 66.68%, #8255fd 66.69%, #8255fd 100%);
+            background-size: 50.5%;
+            overflow: hidden;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
 
-.user-ath-form .note {
-  margin-bottom: 15px;
-}
+        .user-ath-form .note {
+            margin-bottom: 15px;
+        }
 
-/* Adjustments for smaller screens */
-@media (max-width: 576px) {
-  .user-ath-box {
-    padding: 25px;
-  }
+        @media (max-width: 576px) {
+            .user-ath-page {
+                padding: 0; /* Remove top and bottom padding */
+            }
 
-  .input-item {
-    margin-bottom: 15px;
-  }
-
-  .btn {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-    font-size: 16px;
-  }
-
-  .simple-link {
-    display: block;
-    text-align: center;
-    margin-top: 10px;
-    font-size: 14px;
-  }
-
-  .form-note {
-    font-size: 14px;
-  }
-}
-
+            
+            .user-ath-box {
+                padding: 30px 20px 20px; /* Adjust the padding for smaller screens */
+                border-radius: 0; /* Remove border radius */
+                box-shadow: none; /* Remove box shadow */
+            }
+        }
     </style>
 </head>
 
 <body class="user-ath">
     <div class="user-ath-page">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-lg-6 col-md-8  text-center">
+                <div class="col-12 col-md-8 col-lg-6 text-center">
                     <div class="user-ath-logo">
                         <a href="#">
                             <img src="/assets/images/tisoy-sm2x.png" srcset="/assets/images/tisoy-sm2x.png 2x" alt="icon">
