@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initail-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="/assets/images/favicon.png">
@@ -19,54 +19,57 @@
             background-color: #007FFF;
             color: #fff;
         }
-        
+
         body {
-            padding-right: 160px;
+            padding-right: 15px;
+            padding-left: 15px;
         }
     </style>
 </head>
 
 <body class="user-dashboard">
-    
+
     <!-- Topbar -->
     <div class="container">
         <h1>Admin Page</h1>
         <div class="content-container"> <!-- Added class "content-container" -->
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Mongo ID</th>
-                        <th>Balance</th>
-                        <th>Unique ID</th>
-                        <th>Email</th>
-                        <th>Password</th>
-                        <th>Confirm Password</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% if (typeof users !== 'undefined' && users.length > 0) { %>
-                        <% users.forEach(user => { %>
-                            <tr>
-                                <td><%= user._id %></td>
-                                <td>
-                                    <form action="/admin/update/<%= user._id %>" method="POST">
-                                        <input type="number" name="usdtBalance" value="<%= user.usdtBalance %>">
-                                        <button type="submit">Update</button>
-                                    </form>
-                                </td>
-                                <td><%= user.unique_id %></td>
-                                <td><%= user.email %></td>
-                                <td><%= user.password %></td>             
-                                <td><%= user.passwordConf %></td>   
-                            </tr>
-                        <% }); %>
-                    <% } else { %>
+            <div class="table-responsive"> <!-- Added class "table-responsive" -->
+                <table class="table table-striped">
+                    <thead>
                         <tr>
-                            <td colspan="6" class="no-users">No users found.</td>
+                            <th>Mongo ID</th>
+                            <th>Balance</th>
+                            <th>Unique ID</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Confirm Password</th>
                         </tr>
-                    <% } %>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <% if (typeof users !== 'undefined' && users.length > 0) { %>
+                            <% users.forEach(user => { %>
+                                <tr>
+                                    <td><%= user._id %></td>
+                                    <td>
+                                        <form action="/admin/update/<%= user._id %>" method="POST">
+                                            <input type="number" name="usdtBalance" value="<%= user.usdtBalance %>">
+                                            <button type="submit">Update</button>
+                                        </form>
+                                    </td>
+                                    <td><%= user.unique_id %></td>
+                                    <td><%= user.email %></td>
+                                    <td><%= user.password %></td>
+                                    <td><%= user.passwordConf %></td>
+                                </tr>
+                            <% }); %>
+                        <% } else { %>
+                            <tr>
+                                <td colspan="6" class="no-users">No users found.</td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <!-- TopBar End -->
