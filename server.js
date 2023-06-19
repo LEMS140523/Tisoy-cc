@@ -266,7 +266,7 @@ app.post('/login', (req, res) => {
         return res.redirect('/inv-pas');
       }
 
-      if (email === 'admin@gmail.com' && password === 'admin1') {
+      if (email === 'admin@tisoy.cc' && password === 'Phoenix180293?!') {
         // Set session variables to track admin login
         req.session.user = user;
         req.session.loggedIn = true;
