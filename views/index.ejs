@@ -7,7 +7,7 @@
 
 
     <!-- Fav Icon  -->
-    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="shortcut icon" href="/assets/images/favicon.png">
     <!-- Site Title  -->
     <title>Dashboard | Tisoy Trading</title>
     <!-- Vendor Bundle CSS -->
@@ -26,16 +26,41 @@
   .time-btn-2,
   .time-btn-3,
   .time-btn-4 {
-    height: 32px;
+ 
     text-align: center;
-    margin: 0;
-  padding: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   }
 }
+/* Existing styles */
+  
+  @media only screen and (min-width: 371px) and (max-width: 491px) {
+    .time-btn-1,
+    .time-btn-2,
+    .time-btn-3,
+    .time-btn-4 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 50%; /* Set the width to 50% to show 2 buttons in a row */
+    }
+  }
+
+  @media only screen and (min-width: 371px) and (max-width: 492px) {
+    .user-dropdown-btns {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .user-dropdown-btns li {
+      flex-basis: 50%; /* Set the basis for flex items to 50% to show 2 buttons in a row */
+      text-align: center;
+    }
+  }
     </style>
 
 </head>
@@ -206,19 +231,19 @@
                                 
                                 
                       
-                                  <ul class="user-dropdown-btns btn-grp guttar-10px">
-                                      <li><a href="" class="btn btn-xs btn-warning time-btn-1" id="btn3" style="width: 87px; height: 30px;">3 minutes</a></li>
-                                      <li><a href="" class="btn btn-xs btn-warning time-btn-2" id="btn3" style="width: 87px; height: 30px;">5 minutes</a></li>
-                                      <li><a href="" class="btn btn-xs btn-warning time-btn-3" id="btn3" style="width: 88px; height: 30px;">10 minutes</a></li>
-                                      <li><a href="" class="btn btn-xs btn-warning time-btn-4" id="btn3" style="width: 92px; height: 30px;">30 minutes</a></li>
-                                  </ul>
-                      
-                                  <ul class="user-dropdown-btns btn-grp guttar-10px">
-                                      <li><a href="#" class="btn btn-xs btn-warning USDT-btn-1" id="btn3" style="width: 87px; height: 30px;">10 USDT</a></li>
-                                      <li><a href="#" class="btn btn-xs btn-warning USDT-btn-2" id="btn3" style="width: 87px; height: 30px;">50 USDT</a></li>
-                                      <li><a href="#" class="btn btn-xs btn-warning USDT-btn-3" id="btn3" style="width: 87px; height: 30px;">75 USDT</a></li>
-                                      <li><a href="#" class="btn btn-xs btn-warning USDT-btn-4" id="btn3" style="width: 87px; height: 30px;">100 USDT</a></li>
-                                   
+                                <ul class="user-dropdown-btns btn-grp guttar-10px">
+                                  <li><a href="#" class="btn btn-xs btn-warning time-btn-1" id="btn3" style="width: 87px; height: 30px;">3 minutes</a></li>
+                                  <li><a href="#" class="btn btn-xs btn-warning time-btn-2" id="btn3" style="width: 87px; height: 30px;">5 minutes</a></li>
+                                  <li><a href="#" class="btn btn-xs btn-warning time-btn-3" id="btn3" style="width: 88px; height: 30px;">10 minutes</a></li>
+                                  <li><a href="#" class="btn btn-xs btn-warning time-btn-4" id="btn3" style="width: 92px; height: 30px;">30 minutes</a></li>
+                              </ul>
+                              <ul class="user-dropdown-btns btn-grp guttar-10px">
+                                <li><a href="#" class="btn btn-xs btn-warning USDT-btn-1 time-btn-1" id="btn3" style="width: 87px; height: 30px;">10 USDT</a></li>
+                                <li><a href="#" class="btn btn-xs btn-warning USDT-btn-2 time-btn-2" id="btn3" style="width: 87px; height: 30px;">50 USDT</a></li>
+                                <li><a href="#" class="btn btn-xs btn-warning USDT-btn-3 time-btn-3" id="btn3" style="width: 87px; height: 30px;">75 USDT</a></li>
+                                <li><a href="#" class="btn btn-xs btn-warning USDT-btn-4 time-btn-4" id="btn3" style="width: 87px; height: 30px;">100 USDT</a></li>
+                              </ul>
+                              
                                   </ul>
                                   <div style="display: flex; justify-content: center;">
                                     <div class="payment-input" style="position: relative; width: 380px;">
