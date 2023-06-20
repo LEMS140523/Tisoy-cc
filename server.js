@@ -154,19 +154,19 @@ app.post('/recovery', async (req, res) => {
 // Send the password reset email
 // Send the password reset email
 const transporter = nodemailer.createTransport({
-  host: 'smtpout.secureserver.net',
-  port: 465,
-  secure: true,
+  host: process.env.HOST,
+  port: process.env.PORT,
+  secure: process.env.STAT,
   auth: {
-    user: 'password@tisoy.cc', // Your GoDaddy email address
-    pass: 'Tisoy#25' // Your GoDaddy email password
+    user: process.env.EMAIL_USER, // Your GoDaddy email address
+    pass: process.env.EMAIL_PASSWORD // Your GoDaddy email password
   }
 });
 
 const mailOptions = {
-  from: 'password@tisoy.cc', // Your GoDaddy email address
+  from: process.env.EMAIL_USER, // Your GoDaddy email address
   to: email, // Use the submitted email from the forgot password form
-  subject: 'Password Reset',
+  subject: 'Tisoy Account Password Reset',
   text: `Click the following link to reset your password: ${resetUrl}`
 };
 
