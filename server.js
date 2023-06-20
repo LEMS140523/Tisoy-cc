@@ -154,19 +154,17 @@ app.post('/recovery', async (req, res) => {
 // Send the password reset email
 // Send the password reset email
 const transporter = nodemailer.createTransport({
-  // Configure your email provider details here
-  // For example, for a custom email service:
-  host: 'smtp.godaddy.com',
+  host: 'smtp.secureserver.net',
   port: 465,
   secure: true,
   auth: {
-    user: process.env.EMAIL_USERNAME,
-    pass: process.env.EMAIL_PASSWORD
+    user: 'password@tisoy.cc', // Your GoDaddy email address
+    pass: 'Tisoy#25' // Your GoDaddy email password
   }
 });
 
 const mailOptions = {
-  from: process.env.EMAIL_USERNAME,
+  from: 'password@tisoy.cc', // Your GoDaddy email address
   to: email, // Use the submitted email from the forgot password form
   subject: 'Password Reset',
   text: `Click the following link to reset your password: ${resetUrl}`
