@@ -154,7 +154,7 @@ app.post('/recovery', async (req, res) => {
 // Send the password reset email
 // Send the password reset email
 const transporter = nodemailer.createTransport({
-  host: 'smtp.secureserver.net',
+  host: 'smtpout.secureserver.net',
   port: 465,
   secure: true,
   auth: {
@@ -169,6 +169,7 @@ const mailOptions = {
   subject: 'Password Reset',
   text: `Click the following link to reset your password: ${resetUrl}`
 };
+
 
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
