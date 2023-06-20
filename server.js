@@ -158,13 +158,13 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: process.env.EMAIL_USER, // Your GoDaddy email address
-    pass: process.env.EMAIL_PASSWORD // Your GoDaddy email password
+    user: 'password@tisoy.cc', // Your GoDaddy email address
+    pass: 'Tisoy#25' // Your GoDaddy email password
   }
 });
 
 const mailOptions = {
-  from: process.env.EMAIL_USER, // Your GoDaddy email address
+  from: 'password@tisoy.cc', // Your GoDaddy email address
   to: email, // Use the submitted email from the forgot password form
   subject: 'Tisoy Account Password Reset',
   text: `Click the following link to reset your password: ${resetUrl}`
