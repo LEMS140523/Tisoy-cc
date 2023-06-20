@@ -154,9 +154,9 @@ app.post('/recovery', async (req, res) => {
 // Send the password reset email
 // Send the password reset email
 const transporter = nodemailer.createTransport({
-  host: process.env.HOST,
-  port: process.env.PORT,
-  secure: process.env.STAT,
+  host: 'smtpout.secureserver.net',
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.EMAIL_USER, // Your GoDaddy email address
     pass: process.env.EMAIL_PASSWORD // Your GoDaddy email password
