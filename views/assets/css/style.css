@@ -964,6 +964,16 @@ a:hover, a:focus, a:active { outline: 0; color: #46bdf4; }
   .USDT-btn-4 {
     display: none;
   }
+  .input-bordered {
+    width: 100%;
+    max-width: 400px;
+    padding: 5px 40px;
+    overflow: hidden;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
 }
 
