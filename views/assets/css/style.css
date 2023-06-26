@@ -868,6 +868,7 @@ a:hover, a:focus, a:active { outline: 0; color: #46bdf4; }
   }
 }
 
+
 @media (min-width: 300px) and (max-width: 490px) {
   .position-btn-1,
   .position-btn-2 {
@@ -935,15 +936,24 @@ a:hover, a:focus, a:active { outline: 0; color: #46bdf4; }
   }
 
     /* Existing code */
-  
     .payment-get-cur {
-      position: fixed;
+      position: absolute;
       right: 10px;
       top: 50%;
-      transform: translateY(-50%);
+      transform: translate(0, -50%);
       white-space: nowrap;
+      display: flex;
+      align-items: center;
+    }
     
-  }
+    .payment-cal-cur {
+      position: absolute;
+      left: 185px;
+      top: 0;
+      transform: none;
+      white-space: nowrap;
+      padding: 8.5px 13px;
+    }
   
   
   .time-btn-1,
