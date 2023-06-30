@@ -945,22 +945,26 @@ a:hover, a:focus, a:active { outline: 0; color: #46bdf4; }
     margin-bottom: 2px;
   }
     /* Existing code */
-    .payment-get-cur {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translate(0, -50%);
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-    }
+   
     
     .payment-cal-cur {
       position: absolute;
       left: 185px;
-      top: 0;
+      top: -18px;
       white-space: nowrap;
       padding: 8.5px 13px;
+    }
+
+       
+    .payment-cal-cur::after {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      height: 24px;
+      width: 1px;
+      content: '';
+      transform: translateY(-50%);
+      background: #dce6f5;
     }
   
   
@@ -1926,7 +1930,6 @@ select:focus { outline: none; border: none; }
 
 .payment-cal-cur {
   position: absolute;
-  top: 0;
   right: 0;
   text-transform: uppercase;
   color: #6783b8;
