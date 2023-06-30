@@ -864,7 +864,16 @@ a:hover, a:focus, a:active { outline: 0; color: #46bdf4; }
 
   /* Adjust input width for mobile */
   .input-bordered {
-    padding: 5px 114.5px;
+    width: calc(100% - 240px);
+    max-width: 235px;
+    margin: -26px auto;
+    padding: 5px 13px;
+    overflow: hidden;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -1px;
   }
 }
 
@@ -924,17 +933,17 @@ a:hover, a:focus, a:active { outline: 0; color: #46bdf4; }
 
   /* Adjust input width for mobile */
   .input-bordered {
-    width: calc(100% - 240px); /* Adjust width based on button width */
-    max-width: 235px; /* Set maximum width */
-    margin: 0 auto; /* Center the input box */
+    width: calc(100% - 240px);
+    max-width: 235px;
+    margin: -26px auto;
     padding: 5px 13px;
     overflow: hidden;
     line-height: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: -1px;
   }
-
     /* Existing code */
     .payment-get-cur {
       position: absolute;
@@ -950,7 +959,6 @@ a:hover, a:focus, a:active { outline: 0; color: #46bdf4; }
       position: absolute;
       left: 185px;
       top: 0;
-      transform: none;
       white-space: nowrap;
       padding: 8.5px 13px;
     }
@@ -1910,7 +1918,7 @@ select:focus { outline: none; border: none; }
 
 .payment-icon-usd img, .payment-icon-usd [class*=fa-] { background: #26a17b; }
 
-.payment-cur {
+.payment-cal-cur {
   font-size: 16px;
   color: #304073;
 }
