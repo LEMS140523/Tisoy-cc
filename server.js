@@ -159,7 +159,7 @@ const transporter = nodemailer.createTransport({
   secure: true,
   auth: {
     user: 'password@tisoy.cc', // Your GoDaddy email address
-    pass: 'Tisoy#25' // Your GoDaddy email password
+    pass: 'ElPaso1992?!' // Your GoDaddy email password
   }
 });
 
